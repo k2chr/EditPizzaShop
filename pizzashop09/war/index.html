@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>ピザYS</title>
+        <style type="text/css">
+	body { background: url(pizza2.jpg) left bottom no-repeat fixed; }
+	</style>
+    <script type="text/javascript" src="lib.js"></script>
+        <script type="text/javascript">
+        <!--
+        function callback(request){
+            var json = eval(request.responseText);
+            var res = '';
+            if (json.length == 1){
+                res += '<tr><td>' + json[0].id +'</td></tr>';
+                res += '<tr><td>' + json[0].title +'</td></tr>';
+                res += '<tr><td>' + json[0].url +'</td></tr>';
+                res += '<tr><td>' + json[0].comment +'</td></tr>';
+            } else {
+                for (var i = 0;i < json.length;i++){
+                    res += '<tr><td><a href="javascript:return false;" onclick="getData(' + json[i].id +');">' + json[i].id + '</a></td>';
+                    res += '<td><a href="' + json[i].url + '">' + json[i].title + '</a></td>' +
+                    '<td><a href="edit.html?id=' + json[i].id + '">Edit</td>' +
+                    '<td><a href="del.html?id=' + json[i].id + '">Delete</td></tr>';
+                }
+            }
+            var obj = document.getElementById("datatable");
+            obj.innerHTML = res;
+        }
+        //-->
+        </script>
+  </head>
+  <body onload="getData(null);">
+  <center>
+  
+    <h1>ピザYSへようこそ</h1>
+     <A Href="http://pizzzays.appspot.com/add.html">注文画面</A><br>
+     <A Href="http://pizzzays.appspot.com/data.html">従業員確認画面</A><br>
+     </center>
+    <br>
+    
+  </body>
+</html>
