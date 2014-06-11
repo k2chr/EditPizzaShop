@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>注文履歴の検索</title>
+    <script type="text/javascript" src="lib.js"></script>
+        <script type="text/javascript">
+        <!--
+        function findData(){
+            var request = createHttpRequest();
+            if (request == null){
+                alert("HttpRequestが取得できませんでした。");
+                return;
+            }
+            var str = document.getElementById("find").value;
+            var uri = "/find?find=" + encodeURI(str);
+            request.open("GET",uri,true);
+            request.setRequestHeader("User-Agent","XMLHttpRequest");
+            request.onreadystatechange = function(){
+                if (request.readyState == 4 && request.status == 200){
+                    callback(request);
+                }
+            }
+            request.send();
+        }
+ 
+        function callback(request){
+            var json = eval(request.responseText);
+            var res = '';
+            for (var i = 0;i < json.length;i++){
+                res += '<tr><td>' + json[i].id + '</td>' + 
+                    '<td>' + json[i].title + '</td>' +
+                    '<td>' + json[i].date + '</td>' + '</tr>';
+            }
+            var obj = document.getElementById("datatable");
+            obj.innerHTML = res;
+        }
+        //-->
+        </script>
+  </head>
+  <body>
+    <h1>注文履歴の検索</h1>
+    <table>
+      <tr>
+        <td>お名前を入力して下さい。</td>
+        <td><input type="text" id="find"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><form><input type="button" value="GET" onclick="findData();"></form></td>
+      </tr>
+	
+    </table>
+        <br>
+    <table id="datatable" border="1">
+      <tr>
+        <td>no data.</td>
+      </tr>
+    </table>
+    <br>
+   </body>
+</html>
+ 

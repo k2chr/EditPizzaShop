@@ -28,6 +28,10 @@
             var obj = document.getElementById("datatable");
             obj.innerHTML = res;
         }
+        function password(){
+        	var pass = prompt("パスワードを入力してください。");
+        	location.href = pass + ".html";
+        }
         //-->
         </script>
   </head>
@@ -35,8 +39,14 @@
   <center>
   
     <h1>ピザYSへようこそ</h1>
-     <A Href="http://pizzzays.appspot.com/add.html">注文画面</A><br>
-     <A Href="http://pizzzays.appspot.com/data.html">従業員確認画面</A><br>
+    <td>googleアカウントによってログインをしてください。</td><br>
+    <td>既にgoogleアカウントにログインされている方はそのまま注文ページへと進みます。</td><br>
+     <a href="/login">ログインをして注文へ進む</a><br>
+     <!--  <a href="find.html">注文履歴を確認する</a><br> //データの検索はうまくいかなかった-->
+     <form>
+	こちらは従業員専用となります。 //パスワードはdata  <br>
+	<input type="button" value="従業員確認画面" onclick="password()">
+	</form>
      </center>
     <br>
     
